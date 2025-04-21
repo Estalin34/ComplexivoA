@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+<div class="card p-4 shadow-lg w-100" style="max-width: 400px; border-radius: 1rem;">
+  
+
+  <h2 class="text-center mb-4 text-primary">
+    <i class="bi bi-person-circle me-2"></i>
+    {{ showRegister ? 'Registrarse' : 'Iniciar Sesión' }}
+  </h2>
+
+  <form [formGroup]="loginFrom" (ngSubmit)="login()">
+    
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="ejemplo@correo.com">
+      <div *ngIf="(email?.hasError('required') || email?.hasError('email')) && email?.touched" class="form-text text-danger">
+        El correo es inválido.
+      </div>
+    </div>
+
+    
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input formControlName="password" type="password" class="form-control" id="password" placeholder="••••••••">
+      <div *ngIf="(password?.hasError('required') || password?.hasError('minlength')) && password?.touched" class="form-text text-danger">
+        La contraseña es inválida o muy corta.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mb-3">
+      <i class="bi bi-box-arrow-in-right me-2"></i>
+      {{ showRegister ? 'Registrarse' : 'Iniciar Sesión' }}
+    </button>
+  </form>
+
+
+  <button type="button" class="btn btn-outline-danger w-100 mb-3" (click)="loginGoogle()">
+    <i class="bi bi-google me-2"></i> Iniciar con Google
+  </button>
+
+
+  <div class="text-center">
+    <span class="text-muted">
+      {{ showRegister ? '¿Ya tienes cuenta?' : '¿No tienes cuenta?' }}
+      <a (click)="toggleRegister()" class="link-primary" role="button">
+        {{ showRegister ? 'Inicia sesión' : 'Regístrate' }}
+      </a>
+    </span>
+  </div>
+
+</div>
+</div>

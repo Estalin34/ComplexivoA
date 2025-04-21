@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <h2 class="mb-5 text-center">Boletos Comprados 🎟</h2>
+  
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+  
+    <div *ngIf="boletos.length === 0" class="alert alert-info">
+      No has comprado boletos aún.
+    </div>
+  
+    <div *ngFor="let boleto of boletos" class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Película: {{ boleto.peliculaId }}</h5>
+        <p class="card-text">Fecha: {{ boleto.fecha }}</p>
+        <p class="card-text">Hora: {{ boleto.hora }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,52 @@
+<form [formGroup]="form" (ngSubmit)="id ? updateMovie() : addMovie()"
+  class="container mt-5 p-5 rounded-4 shadow-lg bg-white" style="max-width: 700px;">
+
+  <h3 class="mb-4 text-center text-primary fw-bold">
+    {{ id ? '🎬 Editar Película' : '➕ Agregar Nueva Película' }}
+  </h3>
+
+  <div class="mb-3">
+    <label for="titulo" class="form-label fw-semibold">Título</label>
+    <input id="titulo" type="text" class="form-control rounded-3 shadow-sm" formControlName="titulo"
+      placeholder="Ingresa el título de la película" />
+  </div>
+
+  <div class="mb-3">
+    <label for="descripcion" class="form-label fw-semibold">Descripción</label>
+    <textarea id="descripcion" rows="3" class="form-control rounded-3 shadow-sm" formControlName="descripcion"
+      placeholder="Breve sinopsis o detalles"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="imagen" class="form-label fw-semibold">Imagen (URL)</label>
+    <input id="imagen" type="text" class="form-control rounded-3 shadow-sm" formControlName="imagen"
+      placeholder="https://ejemplo.com/imagen.jpg" />
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="anio" class="form-label fw-semibold">Año</label>
+      <input id="anio" type="number" class="form-control rounded-3 shadow-sm" formControlName="anio"
+        placeholder="2024" />
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="moneda" class="form-label fw-semibold">Moneda</label>
+      <input id="moneda" type="text" class="form-control rounded-3 shadow-sm" formControlName="moneda"
+        placeholder="USD, EUR, etc." />
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="real" class="form-label fw-semibold">Precio</label>
+      <input id="real" type="number" class="form-control rounded-3 shadow-sm" formControlName="real"
+        placeholder="Ej. 9.99" />
+    </div>
+  </div>
+
+  <div class="d-grid mt-4">
+    <button type="submit" class="btn btn-lg btn-primary rounded-3 shadow-sm">
+      {{ id ? '✅ Actualizar Película' : '🎥 Agregar Película' }}
+    </button>
+  </div>
+
+</form>
