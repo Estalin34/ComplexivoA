@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pelicula } from '../../types/movies';
 import { MoviesService } from '../../services/movies/movies.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './peliculas-from.component.html',
   styleUrl: './peliculas-from.component.css'
 })
-export class PeliculasFromComponent {
+export class PeliculasFromComponent  implements OnInit {
   form: FormGroup;
   id: string = "";
 
@@ -89,7 +89,5 @@ export class PeliculasFromComponent {
     .then(() => this.router.navigate(["/peliculas"]))
       .catch(err => console.error(err));
   }
-  editarPelicula(peli: Pelicula) {
-    this.router.navigate(['/peliculas-from', peli.id]);
-  }
+
 }

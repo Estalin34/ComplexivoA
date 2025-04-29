@@ -9,9 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MoviesService {
-  loadMoviesToFirebase() {
-    throw new Error('Method not implemented.');
-  }
+
   private url = 'https://jritsqmet.github.io/web-api/peliculas3.json';
 
   constructor(private http: HttpClient, private firestore: Firestore) {}
@@ -61,6 +59,7 @@ export class MoviesService {
         const peliRef = doc(this.firestore, 'peliculas', peli.id.toString());
         setDoc(peliRef, peli);
       });
-    });
+    });``
   }
+  
 }
